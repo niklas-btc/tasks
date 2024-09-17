@@ -37,4 +37,5 @@ build/
 ### Mac OS ###
 .DS_Store
 
-###
+### Entfernen der konfigurationsdatei aus GIT
+/.idea
