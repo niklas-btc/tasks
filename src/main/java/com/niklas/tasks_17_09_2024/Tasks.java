@@ -2,10 +2,6 @@ package com.niklas.tasks_17_09_2024;
 
 public class Tasks {
 
-    public String task1() {
-        return "test";
-    }
-
     // Gebe den Eingabe String rückwärtsgeschrieben zurück
     public String ReverseString(String inputString) {
         String resultString = "";
@@ -111,23 +107,46 @@ public class Tasks {
 
 
     public long CryptClearText(long firstParam, long secoundParam){
-        long encryptMessage = 0;
-        boolean verschluesseltOperation = false;
+        // Binäre XOR Operation (Symmetrisches Verschlüsselungsverfahren)
+        return firstParam ^ secoundParam;
+    }
 
-        // Verschlüsselungsoperation
-        while(firstParam < secoundParam) {
-            encryptMessage = firstParam * secoundParam;
-            firstParam += secoundParam;
-            verschluesseltOperation = true;
+    public String GetDivisors (long divisor, long limit) {
+        String result = "";
+        long sum = 0;
+
+        while(sum < limit) {
+            result += sum + "\n";
+            sum += divisor;
         }
 
-        // prüfe, ob bereits die Verschlüsselungsopteration durchgefürt wurde, falls nicht, ruft der Nutzer eine entschlüsselung auf
-        while(!verschluesseltOperation && secoundParam < firstParam) {
-            encryptMessage = firstParam / secoundParam;
-            secoundParam += firstParam;
+        return result;
+    }
+
+    public String GetUpperCase(String inputString) {
+        String result = "";
+        int i=0;
+        while (i < inputString.length()) {
+
+            int charIndex = inputString.charAt(i);
+            char UpperNewCharacter = (char) charIndex;
+
+            int tempIndex = charIndex;
+
+            // Wenn es sich um einen kleinbuchstaben handelt, ersetze ihn gegen einen Großbuchstaben (ASCII DEC -= 32)
+            while (tempIndex > 96) {
+                while (tempIndex < 123) {
+                    UpperNewCharacter = (char) (charIndex-32);
+                    tempIndex = 999; // Verlassen der Schleife, da nur einmal durchlaufen soll
+                }
+                tempIndex = -1; // Verlassen der Schleife, da nur einmal durchlaufen soll
+            }
+
+            result += UpperNewCharacter;
+            i++;
         }
 
-        return encryptMessage;
+        return result;
     }
 
 

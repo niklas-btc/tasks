@@ -2,6 +2,7 @@ package com.niklas;
 import com.niklas.tasks_17_09_2024.basic;
 import com.niklas.tasks_17_09_2024.Tasks;
 
+import java.awt.*;
 import java.util.Scanner;
 
 public class Main {
@@ -11,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println(TaskCrypticNumbers());
+        System.out.println(TaskToUpperCase());
     }
 
 
@@ -41,6 +42,7 @@ public class Main {
         return tasks.GetChecksum(UserInput);
     }
 
+
     // Erhalte die Zahl PI auf definierte Genauigkeit. Berechnet nach der Leibniz-Methode
     private static double TaskPiToaAccuracy() {
         Scanner scanner = new Scanner(System.in);
@@ -49,6 +51,7 @@ public class Main {
         return tasks.GetPi(UserInput);
     }
 
+
     // Lösung zur Aufgabe "Test auf Primzahl"
     private static String TaskCheckPrimeNumbers() {
         Scanner scanner = new Scanner(System.in);
@@ -56,6 +59,7 @@ public class Main {
         long UserInput = scanner.nextLong();
         return "Ergebnis: " + tasks.CheckPrimeNumber(UserInput);
     }
+
 
     // Lösung zur Aufgabe "Primfaktorzerlegung"
     private static String TaskCGetPrimeNumberFactors() {
@@ -66,6 +70,7 @@ public class Main {
     }
 
 
+    // Lösung zur Aufgabe "Kryptische Zahlen"
     private static String TaskCrypticNumbers(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Bitte die Zahl eingeben: ");
@@ -75,6 +80,24 @@ public class Main {
 
         long encyrptMessage = tasks.CryptClearText(firstparam, secoundparam);
         return "Result: " + encyrptMessage;
+    }
+
+    private static String TaskGetDivisors(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Auf welchen Divisor soll geprüft werden: ");
+        long divisor = scanner.nextLong();
+        System.out.print("Bis zu welcher Zahl: ");
+        long limit = scanner.nextLong();
+
+        return tasks.GetDivisors(divisor, limit);
+
+    }
+
+    private static String TaskToUpperCase(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Bitte String eingeben: ");
+        String UserInput = scanner.nextLine();
+        return tasks.GetUpperCase(UserInput);
     }
 
 
